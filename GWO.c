@@ -62,7 +62,7 @@ void printResults(Pack *Pack){
 
 
 
-void GWO(int dim, int lb, int ub,Pack *Pack, double (*fobj)(double x[])){
+void GWO(int dim, int lb, int ub,Pack *Pack, double (*fobj)(double x[], int)){
 	
 initialization(dim,lb,ub,Pack);
 	int i = 0;
@@ -72,7 +72,7 @@ initialization(dim,lb,ub,Pack);
 		for(j=0;j<searchAgents;j++){
 			verif(dim,lb,ub,j,Pack);
 			
-			fitness = fobj(Pack[j].pos);
+			fitness = fobj(Pack[j].pos, dim);
 			
 			if(fitness < Pack[32].fitness){
 				Pack[30].fitness = Pack[31].fitness;
